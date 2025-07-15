@@ -12,24 +12,25 @@ const shuffle = (arr) => {
 }
 
 const words = shuffle([
-  "love",
-  "cup",
-  "book",
-  "feel",
-  "sweat",
-  "money",
-  "kill",
-  "wet",
-  "plane",
-  "flower",
+  "i love to be happy when", // 0
+  "sweat", // 1
+  "make love", // 2
+  "show me", // 3
+  "money", // 4
+  "upside down", // 5
+  "smile", // 6
+  "the sun makes me", // 7
+  "doomscroll", // 8
+  "ride around", // 9
 ])
 
 let poem = []
-const iterations = 40
+const iterations = 20
 
 for (let i = 1; i < iterations; i++) {
   const f = Array.from(String(fib(i)), Number)
   poem.push(f.length < 2 ? words[Number(f)] : f.map((d) => words[d]).join(" "))
+  Math.random() > 0.5 && poem.push("\n")
 }
 
 console.log(poem.join("\n"))
